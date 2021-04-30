@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {# <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script> #}
+
+        <title>{% block title %}FLEVALLIS{% endblock %}</title>
+        <link rel="shortcut icon" href="../assets/images/icons/Flevallis.ico">
+        <base href="{{ asset('') }}">
+        {# <base href=""> #}
+
+        {% block stylesheets %}
+            {# <link rel="stylesheet" type="text/css" href="build/app.css"/> #}
+        {% endblock %}
+    </head>
+    <body style="background-color:grey" id="{% block body %}{% endblock %}">
+        
+        <header class="row">
+            {% block header %} {% endblock %}
+        </header>
+        <div class="row">
+            {% block div %}
+                <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header margin-0">
+                <header class="mdl-layout__header bandeau blue">
+ 
+                    <!-- Title -->
+                    <!-- Menu du haut -->
+ 
+                    <!-- Add spacer, to align navigation to the right -->
+
+                    <div class="mdl-layout-spacer"></div>
+                            <!-- Add spacer, to align navigation to the right -->
+                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                    </div>
+
+                    <!-- Menu du haut droit -->
+                    <nav class="mdl-navigation mdl-layout--large-screen-only" style="width:160px">
+                                                                
+                    </nav>
+                    {# </div> #}
+                </header>
+                
+                <!-- Menu déroulant de gauche -->
+                <div class="mdl-layout__drawer">
+                    <span class="mdl-layout-title">
+                    </span>
+                    <nav class="mdl-navigation menuLeft">
+                        <hr color="blue" size="10px">
+
+                    </nav>
+                </div>
+                    <main class="mdl-layout__content">
+                    <div class="page-content"><!-- Your content goes here -->
+            {% endblock %}
+        </div>
+
+        <main class="row">
+            {% block main %} {% endblock %}
+        </main>
+
+        <footer class="row">
+            {% block footer %} {% endblock %}
+        </footer>
+
+        {% block javascripts %}
+            {# <script type="text/javascript" src="index.js"></script> #}
+        {% endblock %}
+    </body>
+</html>

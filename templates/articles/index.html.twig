@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body_id %} app {% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block main %}
+    {% include 'baseOpen.html.php' %}
+
+    <body>
+        <div style="backgound-color:blue;  text-align:center; margin:auto">
+        <h3><b><u>Articles</u></b></h3>
+        "Je suis bien ici"
+        <br>
+        {{ text }}
+        <br>
+        {{ numberRandom }}
+        <br><br>
+        Le calcule de {{ chiffre1 }} X {{ chiffre2 }} fait  {{ calc }}
+    </body>
+{% endblock %}
