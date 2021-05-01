@@ -35,17 +35,20 @@
                     <!-- Menu du haut -->
                     <span class="mdl-layout-title">
                         {# <a class="mdl-navigation__link" href="{{ path('show_all_article') }}">&nbsp;<img src="/assets/images/icons/news.png" alt="Actualités" width="45%" title="Actualités"></a> #}
+                        <a class="mdl-navigation__link" href="{{ path('index') }}">&nbsp;<img src="/assets/images/icons/news.png" alt="Actualités" width="4%" style="padding-left:70px" title="Actualités"></a>
+                            <a class="menuLeft menuconnexion" style="text-align: center;" href="{{ path('app_login') }}"><img src="/assets/images/icons/keys.png" width="4%" title="Connexion" style="margin-left:83%; padding:10px 0 10px 0" text-align="center"></a>
+
                     </span>
                     <!-- Add spacer, to align navigation to the right -->
 
-                    <div class="mdl-layout-spacer"></div>
+                    {# <div class="mdl-layout-spacer"></div> #}
                             <!-- Add spacer, to align navigation to the right -->
-                            <div class="mdl-layout-spacer"></div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-                    </div>
+                            {# <div class="mdl-layout-spacer"></div> #}
+                            {# <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right"> #}
+                    {# </div> #}
 
                     <!-- Menu du haut droit -->
-                    <nav class="mdl-navigation mdl-layout--large-screen-only" style="width:160px">
+                    {# <nav class="mdl-navigation mdl-layout--large-screen-only" style="width:160px"> #}
                         {# {% if not app.user %} #}
                             {# <a class="menuLeft menuconnexion" style="text-align: center;" href="{{ path('app_register') }}"><img src="../assets/images/icons/login.png" width="20%" title="Register" text-align="center"></a> #}
                             {# <a class="menuLeft menuconnexion" style="text-align: center;" href="{{ path('app_login') }}"><img src="/assets/images/icons/keys.png" width="45%" title="Connexion" text-align="center"></a> #}
@@ -54,7 +57,7 @@
                             {# <a class="bandoIconeStoreProduct" href="{{ path('app_home') }}" style="width=20%"><img src="../assets/images/icons/addArticle.png" width="40%" title="Calendrier" text-align="center"> </a> #}
                             {# <a class="bandoIconeStoreProduct" style="text-align: center;" href="{{ path('app_logout') }}"><img src="../assets/images/icons/logout.png" width="30%" title="Déconnexion"> </a> #}
                         {# {% endif %}                                                                            #}
-                    </nav>
+                    {# </nav> #}
                     {# </div> #}
                 </header>
                 
@@ -64,6 +67,7 @@
                     </span>
                     <nav class="mdl-navigation menuLeft">
                         {# <a class="menuLeft" href="{{ path('show_all_article') }}"><img src="../assets/images/icons/news.png" width="20%" title=" Actualités" style='margin-left:10px'>&ensp;Articles</a> #}
+                        <a class="menuLeft" href="{{ path('index') }}"><img src="../assets/images/icons/news.png" width="20%" title=" Actualités" style='margin-left:10px'>&ensp;Articles</a>
                         <hr color="blue" size="10px">
                         {# {% if not app.user %} #}
                             {# <a class="menuLeft menuconnexion" href="{{ path('app_register') }}"><img src="../assets/images/icones/keys.png" width="20%" title="Register" style='margin-left:10px'>&ensp;Register</a> #}
