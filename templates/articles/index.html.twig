@@ -9,6 +9,12 @@
     <body>
         <div style="backgound-color:blue;  text-align:center; margin:auto">
         <h3><b><u>Articles</u></b></h3>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-danger" role="alert">{{ message }}</div>
+        {% endfor %}
+
+
         "Je suis bien ici"
         <br>
         {{ text }}

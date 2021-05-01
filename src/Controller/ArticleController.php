@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route ("/numbers", name="numbers")
+     * @Route ("/", name="numbers")
      */
     public function number(): Response
     {
@@ -26,6 +26,20 @@ class ArticleController extends AbstractController
             'calc' => $calc,
             'chiffre1' => $chiffre1,
             'chiffre2' => $chiffre2,
+        ]);
+    }
+
+    /**
+     * @Route ("/index", name="index")
+     */
+    public function index(): Response
+    {
+        return $this->render('articles/index.html.twig', [
+            'text' => 'Voici mon premier texte',
+            'numberRandom' => 0,
+            'calc' => 1,
+            'chiffre1' => 2,
+            'chiffre2' => 3,
         ]);
     }
 }
