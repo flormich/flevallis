@@ -35,9 +35,12 @@
                     <!-- Menu du haut -->
                     <span class="mdl-layout-title">
                         {# <a class="mdl-navigation__link" href="{{ path('show_all_article') }}">&nbsp;<img src="/assets/images/icons/news.png" alt="Actualités" width="45%" title="Actualités"></a> #}
-                        <a class="mdl-navigation__link" href="{{ path('index') }}">&nbsp;<img src="/assets/images/icons/news.png" alt="Actualités" width="4%" style="padding-left:70px" title="Actualités"></a>
+                        <a class="mdl-navigation__link" href="{{ path('show_all_article') }}">&nbsp;<img src="/assets/images/icons/news.png" alt="Actualités" width="4%" style="padding-left:70px" title="Actualités"></a>
+                        {% if not app.user %}
                             <a class="menuLeft menuconnexion" style="text-align: center;" href="{{ path('app_login') }}"><img src="/assets/images/icons/keys.png" width="4%" title="Connexion" style="margin-left:83%; padding:10px 0 10px 0" text-align="center"></a>
-
+                        {% else %}
+                            <a class="bandoIconeStoreProduct" style="text-align: center;" href="{{ path('app_logout') }}"><img src="../assets/images/icons/logout.png" width="4%" title="Déconnexion" style="margin-left:83%; padding:10px 0 10px 0" text-align="center"></a>
+                        {% endif %}
                     </span>
                     <!-- Add spacer, to align navigation to the right -->
 
@@ -67,7 +70,7 @@
                     </span>
                     <nav class="mdl-navigation menuLeft">
                         {# <a class="menuLeft" href="{{ path('show_all_article') }}"><img src="../assets/images/icons/news.png" width="20%" title=" Actualités" style='margin-left:10px'>&ensp;Articles</a> #}
-                        <a class="menuLeft" href="{{ path('index') }}"><img src="../assets/images/icons/news.png" width="20%" title=" Actualités" style='margin-left:10px'>&ensp;Articles</a>
+                        <a class="menuLeft" href="{{ path('show_all_article') }}"><img src="../assets/images/icons/news.png" width="20%" title=" Actualités" style='margin-left:10px'>&ensp;Articles</a>
                         <hr color="blue" size="10px">
                         {# {% if not app.user %} #}
                             {# <a class="menuLeft menuconnexion" href="{{ path('app_register') }}"><img src="../assets/images/icones/keys.png" width="20%" title="Register" style='margin-left:10px'>&ensp;Register</a> #}
@@ -77,21 +80,24 @@
                             {# <hr class="barreconnexion" color="blue" size="10px"> #}
                         {# {% endif %} #}
 
-                        {# {% if not app.user %} #}
-                        {# {% else %} #}
-                            {# {% if (app.user.role.id == "1") %} #}
+                        {% if not app.user %}
+                        {% else %}
+                            {% if (app.user.role.id == "1") %}
                                 {# {{ dump(app.user) }}
                                 Je suis Admin
                                 {{ dump(app.user.username) }}
                                 {{ dump(app.user.role.name)}} #}
-                                {# <a class="menuLeft menuviewusers" href="{{ path('add_article') }}"><img src="../assets/images/icons/addArticle.png" width="15%" title="Ajout article" style='margin-left:10px'>&ensp;Ajout Article</a>
-                                <a class="menuLeft menuviewusers" href="{{ path('add_theme') }}"><img src="" width="15%" title="Ajout thème" style='margin-left:10px'>&ensp;Ajout Thème</a>
-                                <a class="menuLeft menuviewusers" href="{{ path('add_key') }}"><img src="" width="15%" title="Ajout mot clés" style='margin-left:10px'>&ensp;Ajout Mots clés</a>
-                                <a class="menuLeft menuviewusers" href="{{ path('all_users') }}"><img src="/assets/images/icons/folderUsers.png" width="15%" title="Utilisateur" style='margin-left:10px'>&ensp;Utilisateurs</a> #}
-                            {# {% else %} #}
-                           
-                            {# {% endif %} #}
-                        {# {% endif %}                        #}
+                                {# <a class="menuLeft menuviewusers" href="{{ path('add_article') }}"><img src="../assets/images/icons/addArticle.png" width="15%" title="Ajout article" style='margin-left:10px'>&ensp;Ajout Article</a> #}
+                                <a class="menuLeft menuviewusers" href="{{ path('index') }}"><img src="../assets/images/icons/addArticle.png" width="15%" title="Ajout article" style='margin-left:10px'>&ensp;Ajout Article</a>
+                                {# <a class="menuLeft menuviewusers" href="{{ path('add_theme') }}"><img src="" width="15%" title="Ajout thème" style='margin-left:10px'>&ensp;Ajout Thème</a> #}
+                                <a class="menuLeft menuviewusers" href="{{ path('index') }}"><img src="" width="15%" title="Ajout thème" style='margin-left:10px'>&ensp;Ajout Thème</a>
+                                {# <a class="menuLeft menuviewusers" href="{{ path('add_key') }}"><img src="" width="15%" title="Ajout mot clés" style='margin-left:10px'>&ensp;Ajout Mots clés</a> #}
+                                <a class="menuLeft menuviewusers" href="{{ path('index') }}"><img src="" width="15%" title="Ajout mot clés" style='margin-left:10px'>&ensp;Ajout Mots clés</a>
+                                {# <a class="menuLeft menuviewusers" href="{{ path('all_users') }}"><img src="/assets/images/icons/folderUsers.png" width="15%" title="Utilisateur" style='margin-left:10px'>&ensp;Utilisateurs</a> #}
+                                <a class="menuLeft menuviewusers" href="{{ path('index') }}"><img src="/assets/images/icons/folderUsers.png" width="15%" title="Utilisateur" style='margin-left:10px'>&ensp;Utilisateurs</a>
+                            {% else %}
+                            {% endif %}
+                        {% endif %}                       
                     </nav>
                 </div>
                     <main class="mdl-layout__content">

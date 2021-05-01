@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Ajout de theme {% endblock %}
+{# {% block title %} {{ titreSite }} {% endblock %} #}
+
+{% block body_id %}app{% endblock %}
+
+{% block main %}
+    {% include 'baseOpen.html.php' %}
+    <center>
+    <h1>Ajouter un theme</h1>
+
+    <table>
+        <tr>
+            <td>
+                {{ form_start(addThemeForm)}}
+                    {{ form_row(addThemeForm.name, {
+                        label: 'Nom : '
+                    })}}
+            </td>
+            {# <td style="width:50px"></td>
+            <td rowspan="2" style="border:solid 1px black; text-align:center">
+                <b>Thèmes déjà enregistré</b><br><br>
+                {% for showTheme in showThemes %}
+                    {{ showTheme.name }}
+                    <br>
+                {% endfor %}
+            </td> #}
+        </tr>
+        <tr>
+            <td style="text-align:center; vertical-align:top" >
+                <br>
+                <button class="btn" type="submit">Enregistrer</button>
+            </td>
+            {# <td></td>
+            <td></td> #}
+        </tr>
+        {{ form_end(addThemeForm) }}
+    </table>
+    {# <table style="position:absolute; float:right; padding-right:5%"> #}
+    <table style="position:absolute; top:100px; left:80%; background:white">
+        <tr>
+            <td rowspan="2" style="border:solid 1px black; text-align:center">
+                <b>Thèmes déjà existant</b><br><br>
+                {% for showTheme in showThemes %}
+                    {{ showTheme.name }}
+                    <br>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+    {% include 'footer.html.php' %}
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+{# {% block title %} Montrer Articles {% endblock %} #}
+{% block body_id %} app {% endblock %}
+{% block header %}
+    {# {% include 'shared/_header.html.twig' %} #}
+{% endblock %}
+
+{% block main %}
+    {% include 'baseOpen.html.php' %}
+        {# Corp de la page d'articles #}
+    <div class="backgroundCreate heightMoy">
+        <center>
+        <h3><b><u>Articles</u></b></h3>
+        {% if not app.user %}
+        {% else %}
+            {% if (app.user.role.id == "1") %}
+                {# <a href="{{ path('update_article', {'title':article.title}) }}"><input type="button" value="Modifier"> </a>&emsp; #}
+                <a href="{{ path('delete_article', {'title':article.title}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');"><input type="button" value="Supprimer"> </a>
+                <br><br>
+            {% else %}
+            {% endif %}
+        {% endif %}
+    </div>
+    {# {% for pictures in picture %} #}
+    <div class="backgroundCreate">
+        <section class="paragraphe subtitle read ">
+            <center>
+            <table class="tableauReadScrap backgroundWhite" style="border: 1px solid black; border-collapse:collapse; text-align:center; margin:auto; width:80%; height:400px">                
+                <tbody class="pointerRead">
+                    <tr class="textShadow borderTableauUsers textTableauUsers" style="text-align:center">
+                        {# Titre article #}
+                        <td class=" borderTrue" style="width:49%; height:5%; font-weight:bold; border: 1px solid black; border-collapse:collapse;">
+                            {{ article.title }}
+                        </td>
+                        {# <td rowspan="4" colspan="3" class=" borderTrue" style="width:51%; height:60%; border: 1px solid black; border-collapse:collapse;">
+                            <br>
+                                {% if mainPicture == 'nophoto' %}
+                                    <img src="imagesLoaders/nophoto.jpg" style="width:90%" />                                    
+                                {% else %}
+                                    <a href="javascript:popup('imagesLoaders/{{ mainPicture }}')"><img src="imagesLoaders/{{ mainPicture }}" style="width:90%" />                                    
+                                {% endif %}
+                            <br><br>
+                        </td> #}
+                        <td rowspan="4" colspan="3" class=" borderTrue" style="width:51%; height:60%; border: 1px solid black; border-collapse:collapse;">
+                            <br>
+                                {% if outputs1 == 'nophoto' %}
+                                    <img src="imagesLoaders/nophoto.jpg" style="width:90%" />                                    
+                                {% else %}
+                                    <a href="javascript:popup('imagesLoaders/{{ outputs1 }}')"><img src="imagesLoaders/{{ outputs1 }}" style="width:90%" />                                    
+                                {% endif %}
+                            <br><br>
+                        </td>
+                    </tr>
+                    {# Afficher Theme #}
+                    <tr class="textShadow borderTableauUsers textTableauUsers" style="text-align:center">
+                        <td class=" borderTrue" style="height:5%; border: 1px solid black; border-collapse:collapse;"><b>Thème : </b>
+                            {% for theme in article.articlesThemes %}
+                                {{ theme.themes }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr class="textShadow borderTableauUsers textTableauUsers" style="text-align:center">
+                        <td class=" borderTrue" style="height:5%; font-weight:bold; vertical-align: middle; border-top: 1px solid black; border-collapse:collapse;">Description :</td>
+                    </tr>
+                    {# Descripton #}
+                    <tr class="textShadow borderTableauUsers textTableauUsers" style="text-align:center; vertical-align: top;">
+                        <td rowspan="4" class=" borderTrue" style="height:30%; border-bottom: 1px solid black; border-collapse:collapse; padding-top:15px; text-align:left; padding-left:25px; padding-right:25px">
+                            {{ article.Description|nl2br }}
+                        </td>
+                    </tr>
+                    {# Petite photos #}
+                    <tr>
+                        <td style="width:17%; height:30%; border: 1px solid black; border-collapse:collapse;">
+                            <br>
+                                {% if outputs2 == 'nophoto' %}
+                                    <img src="imagesLoaders/nophoto.jpg" style="width:70%" />    
+                                {% else %}     
+                                    <a href="javascript:popup('imagesLoaders/{{ outputs2 }}')"><img src="imagesLoaders/{{ outputs2 }}" style="width:70%" />                       
+                                {% endif %}
+                            <br><br>
+                        </td>
+                        <td style="width:17%; border: 1px solid black; border-collapse:collapse;">
+                            <br>
+                                {% if outputs3 == 'nophoto' %}
+                                    <img src="imagesLoaders/nophoto.jpg" style="width:70%" />      
+                                {% else %}                              
+                                    <a href="javascript:popup('imagesLoaders/{{ outputs3 }}')"><img src="imagesLoaders/{{ outputs3 }}" style="width:70%" />                                    
+                                {% endif %}
+                            <br><br>
+                        </td>
+                        <td style="width:17%; border: 1px solid black; border-collapse:collapse;">
+                            <br>
+                                {% if outputs4 == 'nophoto' %}
+                                    <img src="imagesLoaders/nophoto.jpg" style="width:70%" />                                    
+                                {% else %}
+                                    <a href="javascript:popup('imagesLoaders/{{ outputs4 }}')"><img src="imagesLoaders/{{ outputs4 }}" style="width:70%" />                                    
+                                {% endif %}
+                            <br><br>
+                        </td>
+                    </tr>
+                    {# liens + Keywords #}
+                    <tr class="textShadow borderTableauUsers textTableauUsers" style="text-align:center">
+                        {# <td class=" borderTrue" style="height:50px">Liens matériel utilisé :<br> #}
+                        {# <td style="border: 1px solid black; border-collapse:collapse;"></td> #}
+                        <td colspan="3" class="borderTrue" style="font-weight:bold; height:5%; border: 1px solid black; border-collapse:collapse;">Mots clé :</td>
+                    </tr>
+                    <tr>
+                        {# <td></td> #}
+                        <td colspan="3" class="borderTrue" style="height:10%; border: 1px solid black; border-collapse:collapse;">
+                            {% for keyWord in article.keyWords %}
+                                {{ keyWord.name }} /
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </tbody>                    
+            </table>
+            <br>
+        <br>
+        {% include 'footer.html.php' %}
+        </section>
+    </div>
+    {# {% endfor %} #}
+{% endblock %} 
