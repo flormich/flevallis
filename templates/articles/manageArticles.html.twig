@@ -1,13 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{# {% block title %} {{ titreSite }} {% endblock %} #}
-{# {% block title %} ??? {% endblock %} #}
+{% block title %} Flevallis -> Gérer les articles {% endblock %}
+{% block body_id %} app {% endblock %}
 
-{% block body_id %}app{% endblock %}
-
-{% block header %}
-    {# {% include 'shared/_header.html.twig' %} #}
-{% endblock %}
+{% block header %} {% endblock %}
 
 {% block main %}
     {% include 'baseOpen.html.php' %}
@@ -15,7 +11,7 @@
     
     <div class="backgroundCreate heightMoy">
         <br><center>
-        <h3><b><u>Gérer les Articles</u></b></h3>
+        <h3><b><u>Gérer les articles</u></b></h3>
         <a href="{{ path('show_all_article') }}"> <input type="button" value="Revenir en tuile"></a>
         {% if (app.user.role.id == "1") %}
             <br><br>

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Flevallis -> Lire un article {% endblock %}
+{% block body_id %} app {% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block main %}
+    {% include 'baseOpen.html.php' %}
+    {# Corp de la page d'accueil #}
+    
+    <div class="backgroundCreate heightMoy">
+        <br><center>
+        <h3><b><u>Gérer mon compte</u></b></h3>
+        {# <h4>{{ userCourant }}<h4> #}
+        <br>
+    </div>
+
+    <div class="backgroundCreate" style="text-align:center; margin:auto">
+        <section class="paragraphe subtitle read ">
+        <center>
+            <table class="tableauReadScrap backgroundWhite" style="border-collapse:collapse; border:solid 1px black">                
+                <tbody class="pointerRead">
+                    <tr class="textShadow borderTableauUsers textTitleUsers borderTrue">
+                        <th rowspan="2" class="borderTrue widthColonneUsers" style="border: solid 1px black;text-align:center; width:130px; height:30px">Pseudo</th>
+                        <th onclick="document.location='{{ path('showArtSortPrenom') }}'" rowspan="2" class="borderTrue widthColonneUsers" style="border: solid 1px black; text-align:center; width:130px; cursor:pointer;">Prénom</th>
+                        <th onclick="document.location='{{ path('showArtSortNom') }}'" rowspan="2" class="borderTrue widthColonneUsers" style="border: solid 1px black; text-align:center; width:130px; cursor:pointer;">Nom</th>
+                        <th rowspan="2" class="borderTrue widthColonneUsers" style="border: solid 1px black; text-align:center; width:130px">Email</th>
+                        <th rowspan="2" class="borderTrue widthColonneUsers" style="border: solid 1px black; text-align:center; width:130px">Date Create</th>
+                        {# <td rowspan="2" class="borderTrue widthColonneUsers">Mdp</td> #}
+                        <th colspan="2" class="borderTrue widthColonneUsers" style="border: solid 1px black; text-align:center">Interagir</th>
+                        {# <td colspan="2" class="borderTrue widthColonneIconeUsers">Action</td> #}
+                    </tr>
+                    <tr class="textShadow borderTableauUsers">
+                    </tr>
+                {# {% for users in user %} #}
+                    <tr class="textShadow borderTableauUsers textTableauUsers">
+                        <td class=" borderTrue" style="border: solid 1px black; text-align:center;">{{ user.username }}</td>
+                        <td class=" borderTrue" style="border: solid 1px black; text-align:center">{{ user.firstname }}</td>
+                        <td class=" borderTrue" style="border: solid 1px black; text-align:center">{{ user.name }}</td>
+                        <td class=" borderTrue" style="border: solid 1px black; text-align:center">{{ user.email }}</td>  
+                        <td class=" borderTrue" style="border: solid 1px black; text-align:center">{{ user.datecreate | date('d/m/Y') }}</td>  
+                        {# <td class=" borderTrue">{{ user.password }}</td>   #}
+                        <td class=" " style="border: solid 1px black; text-align:center"><a href="{{ path('update_user', {'username':user.username}) }}"><img src="../assets/images/icons/pen.png" alt="Update" width="25%" title="Modification"></td>  
+                        <td class=" " style="border: solid 1px black; text-align:center"><a href="{{ path('delete_user', {'username':user.username}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cotre compte ?');"><img src="../assets/images/icons/trash.png" alt="Trash" width="25%" title="Suppression"></a></td>  
+ 
+                        {# <td class="borderTrueTopLeftRight espaceTopBottom titleCenter" onclick="document.location='{{ path('readscrapdetail', {'id':scraps.id}) }}">{{ scraps.titre }}</td>   #}
+                    </tr>
+                {# {% endfor %} #}
+                </tbody>                    
+            </table>
+            <br>
+            {% include 'footer.html.php' %}
+        </section>
+    </div>
+{% endblock %} 

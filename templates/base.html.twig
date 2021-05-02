@@ -64,6 +64,9 @@
                     {# </div> #}
                 </header>
                 
+                {% if not app.user %}
+                {% else %}
+                {% if (app.user.role.id == "1") %}
                 <!-- Menu déroulant de gauche -->
                 <div class="mdl-layout__drawer">
                     <span class="mdl-layout-title">
@@ -80,26 +83,21 @@
                             {# <hr class="barreconnexion" color="blue" size="10px"> #}
                         {# {% endif %} #}
 
-                        {% if not app.user %}
-                        {% else %}
-                            {% if (app.user.role.id == "1") %}
+
                                 {# {{ dump(app.user) }}
                                 Je suis Admin
                                 {{ dump(app.user.username) }}
                                 {{ dump(app.user.role.name)}} #}
-                                {# <a class="menuLeft menuviewusers" href="{{ path('add_article') }}"><img src="../assets/images/icons/addArticle.png" width="15%" title="Ajout article" style='margin-left:10px'>&ensp;Ajout Article</a> #}
-                                <a class="menuLeft menuviewusers" href="{{ path('index') }}"><img src="../assets/images/icons/addArticle.png" width="15%" title="Ajout article" style='margin-left:10px'>&ensp;Ajout Article</a>
-                                {# <a class="menuLeft menuviewusers" href="{{ path('add_theme') }}"><img src="" width="15%" title="Ajout thème" style='margin-left:10px'>&ensp;Ajout Thème</a> #}
-                                <a class="menuLeft menuviewusers" href="{{ path('index') }}"><img src="" width="15%" title="Ajout thème" style='margin-left:10px'>&ensp;Ajout Thème</a>
-                                {# <a class="menuLeft menuviewusers" href="{{ path('add_key') }}"><img src="" width="15%" title="Ajout mot clés" style='margin-left:10px'>&ensp;Ajout Mots clés</a> #}
-                                <a class="menuLeft menuviewusers" href="{{ path('index') }}"><img src="" width="15%" title="Ajout mot clés" style='margin-left:10px'>&ensp;Ajout Mots clés</a>
-                                {# <a class="menuLeft menuviewusers" href="{{ path('all_users') }}"><img src="/assets/images/icons/folderUsers.png" width="15%" title="Utilisateur" style='margin-left:10px'>&ensp;Utilisateurs</a> #}
-                                <a class="menuLeft menuviewusers" href="{{ path('index') }}"><img src="/assets/images/icons/folderUsers.png" width="15%" title="Utilisateur" style='margin-left:10px'>&ensp;Utilisateurs</a>
+                                <a class="menuLeft menuviewusers" href="{{ path('add_article') }}"><img src="../assets/images/icons/foldPictures.png" width="15%" title="Ajout article" style='margin-left:10px'>&ensp;Ajout Article</a>
+                                <a class="menuLeft menuviewusers" href="{{ path('add_theme') }}"><img src="../assets/images/icons/foldBooks.png" width="15%" title="Ajout thème" style='margin-left:10px'>&ensp;Ajout Thème</a>
+                                <a class="menuLeft menuviewusers" href="{{ path('add_key') }}"><img src="../assets/images/icons/foldWords.png" width="15%" title="Ajout mot clés" style='margin-left:10px'>&ensp;Ajout Mots clés</a>
+                                <br><br>
+                                <a class="menuLeft menuviewusers" href="{{ path('all_users') }}"><img src="/assets/images/icons/foldUsers.png" width="15%" title="Utilisateur" style='margin-left:10px'>&ensp;Utilisateurs</a>
+                    </nav>
+                </div>
                             {% else %}
                             {% endif %}
                         {% endif %}                       
-                    </nav>
-                </div>
                     <main class="mdl-layout__content">
                     <div class="page-content"><!-- Your content goes here -->
             {% endblock %}
