@@ -9,8 +9,8 @@
     {% include 'baseOpen.html.php' %}
         {# Corp de la page d'articles #}
     <div class="backgroundCreate heightMoy">
-        <center>
-        <h3><b><u>Articles</u></b></h3>
+        <center><br>
+        {# <h1>Article</h1> #}
         {% if not app.user %}
         {% else %}
             {% if (app.user.role.id == "1") %}
@@ -30,17 +30,8 @@
                     <tr class="textShadow borderTableauUsers textTableauUsers" style="text-align:center">
                         {# Titre article #}
                         <td class=" borderTrue" style="width:49%; height:5%; font-weight:bold; border: 1px solid black; border-collapse:collapse;">
-                            {{ article.title }}
+                            <h3>{{ article.title }}</h3>
                         </td>
-                        {# <td rowspan="4" colspan="3" class=" borderTrue" style="width:51%; height:60%; border: 1px solid black; border-collapse:collapse;">
-                            <br>
-                                {% if mainPicture == 'nophoto' %}
-                                    <img src="imagesLoaders/nophoto.jpg" style="width:90%" />                                    
-                                {% else %}
-                                    <a href="javascript:popup('imagesLoaders/{{ mainPicture }}')"><img src="imagesLoaders/{{ mainPicture }}" style="width:90%" />                                    
-                                {% endif %}
-                            <br><br>
-                        </td> #}
                         <td rowspan="4" colspan="3" class=" borderTrue" style="width:51%; height:60%; border: 1px solid black; border-collapse:collapse;">
                             <br>
                                 {% if outputs1 == 'nophoto' %}
