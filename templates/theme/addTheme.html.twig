@@ -15,7 +15,7 @@
                     {{ form_row(addThemeForm.name, {
                         label: 'Nom du thème : '
                     })
-                }}
+                }}                
             </td>
         </tr>
         <tr>
@@ -24,18 +24,21 @@
                 <button class="btn" type="submit">Enregistrer</button>
             </td>
         </tr>
+        {{ form_end(addThemeForm) }}
     </table>
 
-    <table style="position:absolute; top:100px; left:80%; background:white">
+    <table style="position:absolute; top:100px; left:80%; background:white; margin-right:2%">
         <tr>
             <td rowspan="2" style="border:solid 2px black; text-align:center; padding: 0 10px">
                 <b>Thèmes déjà existants</b>
-                <br><br>
-                <p style="overflow:auto; height: 15.5em; margin: 0px;">
-                    {% for showTheme in showThemes %}
-                        {{ showTheme.name }}
-                        <br>
-                    {% endfor %}
+                <br>
+                <p style="overflow:auto; height: 15em; margin-top: 15px; text-align:end">
+                {% for showTheme in showThemes %}
+                    {{ showTheme.name }}
+                    <a href="" style="padding-left:20px"><img src="../assets/images/icons/pen.png" alt="Update" width="15%" title="Modification"></a>
+                    <a href="{{ path('delete_theme', {'name':showTheme.name}) }}" style="padding-right:5px" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le thème : {{ showTheme.name }} et tous les articles associés ?');"><img style="text-align:right" src="../assets/images/icons/trash.png" alt="Trash" width="15%" title="Suppression"></a>
+                    <br>
+                {% endfor %}
                 </p>
             </td>
         </tr>

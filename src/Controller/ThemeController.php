@@ -43,34 +43,20 @@ class ThemeController extends AbstractController
     }
 
     // /**
-    //  * @Route("/showAllArticle", name="show_all_article")
+    //  * @Route("/updateTheme/{theme}", name="update_theme")
     //  */
-    // public function ShowAllArticle(Request $request): Response
-    // {
-        
-    // }
-
-    // /**
-    //  * @Route("/showArticle/{id}", name="show_one_article")
-    //  */
-    // public function ShowOneArticle(Request $request): Response
-    // {
-        
-    // }
-
-    // /**
-    //  * @ROute("/updateArticle", name="update_article")
-    //  */
-    // public function UpdateArticle(Request $request): Response
+    // public function UpdateTheme(Request $request): Response
     // {
 
     // }
 
-    // /**
-    //  * @Route("deleteArticle", name="delete_article")
-    //  */
-    // public function DeleteArticle(Request $request): Response
-    // {
-
-    // }
+    /**
+     * @Route("deleteTheme/{name}", name="delete_theme")
+     */
+    public function DeleteTheme(Themes $theme, Request $request): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $themeName = $theme->getName();
+        var_dump($themeName);
+    }
 }

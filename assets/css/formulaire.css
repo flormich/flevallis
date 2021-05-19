@@ -11,3 +11,7 @@
     float: left; 
     margin-left:5px
 }
+
+.textArea {
+    width: 500px;
+}

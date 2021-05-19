@@ -8,7 +8,6 @@
 {% block main %}
     {% include 'baseOpen.html.php' %}
     <div class="backgroundCreate heightMoy">
-        <br>
         <center>
         <h1>Articles</h1>
         {% if not app.user %}
@@ -42,7 +41,7 @@
                             {% for mainPicture in mainPictures %}
                                 {% if (mainPicture.article.id == article.id) %}
                                     <br>
-                                    <img src="imagesLoaders/{{ mainPicture.address }}" style="width:90%" /><br>
+                                    <img src="imagesLoaders/{{ mainPicture.address }}" style="width:90%" title="Cliquer sur la photo pour plus de détails"/><br>
                                     <br>
                                 {% endif %}
                             {% endfor %}

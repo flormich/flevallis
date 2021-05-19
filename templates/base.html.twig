@@ -39,7 +39,7 @@
                         {% if not app.user %}
                             <a class="menuLeft menuconnexion" style="text-align: center;" href="{{ path('app_login') }}"><img src="/assets/images/icons/keys.png" width="4%" title="Connexion" style="margin-left:83%; padding:10px 0 10px 0" text-align="center"></a>
                         {% else %}
-                            <a class="bandoIconeStoreProduct" style="text-align: center;" href="{{ path('app_logout') }}"><img src="../assets/images/icons/logout.png" width="4%" title="Déconnexion" style="margin-left:83%; padding:10px 0 10px 0" text-align="center"></a>
+                            <a class="bandoIconeStoreProduct" style="text-align: center;" href="{{ path('app_logout') }}"><img src="../assets/images/icons/logout.png" width="4%" title="Déconnexion" style="margin-left:84%; padding:10px 0 10px 0" text-align="center"></a>
                         {% endif %}
                     </span>
                     <!-- Add spacer, to align navigation to the right -->
@@ -75,31 +75,24 @@
                         {# <a class="menuLeft" href="{{ path('show_all_article') }}"><img src="../assets/images/icons/news.png" width="20%" title=" Actualités" style='margin-left:10px'>&ensp;Articles</a> #}
                         <a class="menuLeft" href="{{ path('show_all_article') }}"><img src="../assets/images/icons/news.png" width="20%" title=" Actualités" style='margin-left:10px'>&ensp;Articles</a>
                         <hr color="blue" size="10px">
-                        {# {% if not app.user %} #}
-                            {# <a class="menuLeft menuconnexion" href="{{ path('app_register') }}"><img src="../assets/images/icones/keys.png" width="20%" title="Register" style='margin-left:10px'>&ensp;Register</a> #}
-                        {# {% else %} #}
-                            {# <a class="menuLeft" href="#"><img src="../assets/images/icones/shopping.png" width="40%" title="Calendrier" text-align="center">Calendrier</a> #}
-                            {# <a class="menuLeft " href="readOrder"><img src="../assets/images/icones/shopping.png" width="20%" title="Commander">Commander</a> #}
-                            {# <hr class="barreconnexion" color="blue" size="10px"> #}
-                        {# {% endif %} #}
-
-
-                                {# {{ dump(app.user) }}
-                                Je suis Admin
-                                {{ dump(app.user.username) }}
-                                {{ dump(app.user.role.name)}} #}
-                                <a class="menuLeft menuviewusers" href="{{ path('add_article') }}"><img src="../assets/images/icons/foldPictures.png" width="15%" title="Ajout article" style='margin-left:10px'>&ensp;Ajout Article</a>
-                                <a class="menuLeft menuviewusers" href="{{ path('add_theme') }}"><img src="../assets/images/icons/foldBooks.png" width="15%" title="Ajout thème" style='margin-left:10px'>&ensp;Ajout Thème</a>
-                                <a class="menuLeft menuviewusers" href="{{ path('add_key') }}"><img src="../assets/images/icons/foldWords.png" width="15%" title="Ajout mot clés" style='margin-left:10px'>&ensp;Ajout Mots clés</a>
-                                <br><br>
-                                <a class="menuLeft menuviewusers" href="{{ path('all_users') }}"><img src="/assets/images/icons/foldUsers.png" width="15%" title="Utilisateur" style='margin-left:10px'>&ensp;Utilisateurs</a>
+                        {# {{ dump(app.user) }}
+                        Je suis Admin
+                        {{ dump(app.user.username) }}
+                        {{ dump(app.user.role.name)}} #}
+                        <a class="menuLeft menuviewusers" href="{{ path('add_article') }}"><img src="../assets/images/icons/foldPictures.png" width="15%" title="Ajout article" style='margin-left:10px'>&ensp;Ajout Article</a>
+                        <a class="menuLeft menuviewusers" href="{{ path('add_theme') }}"><img src="../assets/images/icons/foldBooks.png" width="15%" title="Ajout thème" style='margin-left:10px'>&ensp;Ajout Thème</a>
+                        <a class="menuLeft menuviewusers" href="{{ path('add_key') }}"><img src="../assets/images/icons/foldWords.png" width="15%" title="Ajout mot clés" style='margin-left:10px'>&ensp;Ajout Mots clés</a>
+                        <br><br>
+                        <a class="menuLeft menuviewusers" href="{{ path('all_users') }}"><img src="/assets/images/icons/foldUsers.png" width="15%" title="Utilisateur" style='margin-left:10px'>&ensp;Utilisateurs</a>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <a class="menuLeft menuviewusers" style="text-align:center; text-decoration: none; color:black; font-size:1rem" href="{{ path('all_users')}}"> {{ app.user.username }} </a>
                     </nav>
                 </div>
-                            {% else %}
-                            {% endif %}
-                        {% endif %}                       
-                    <main class="mdl-layout__content">
-                    <div class="page-content"><!-- Your content goes here -->
+                {% else %}
+                {% endif %}
+                {% endif %}                       
+                <main class="mdl-layout__content">
+                <div class="page-content"><!-- Your content goes here -->
             {% endblock %}
         </div>
 

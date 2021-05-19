@@ -12,33 +12,78 @@
 
     <h1>Page d'enregistrement</h1>
 
+    <table style="txt-align:center; margin:auto">
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username, {
-            label: 'Pseudo : '
-        }) }}
-        {{ form_row(registrationForm.firstname, {
-            label: 'Prénom : '
-        })}}
-        {{ form_row(registrationForm.name, {
-            label: 'Nom : '
-        })}}
-        {{ form_row(registrationForm.email, {
-            label: 'Email : '
-        }) }}
-        <br>
+        <tr>
+            <td style="width:150px; height:20px; text-align:right">
+                {{ form_label(registrationForm.username, 'Pseudo : ') }}
+            </td>
+            <td style="width:170px; height:20px; text-align:left">
+                {{ form_errors(registrationForm.username) }}
+                {{ form_widget(registrationForm.username) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width:150px; height:20px; text-align:right">
+                {{ form_label(registrationForm.firstname, 'Prénom : ') }}
+            </td>
+            <td style="width:170px; height:20px; text-align:left">
+                {{ form_errors(registrationForm.firstname) }}
+                {{ form_widget(registrationForm.firstname) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width:150px; height:20px; text-align:right">
+                {{ form_label(registrationForm.name, 'Nom : ') }}
+            </td>
+            <td style="width:170px; height:20px; text-align:left">
+                {{ form_errors(registrationForm.name) }}
+                {{ form_widget(registrationForm.name) }}
+            </td>
+        </tr>
+    
+        <tr>
+            <td style="width:150px; height:20px; text-align:right">
+                {{ form_label(registrationForm.email, 'Email : ') }}
+            </td>
+            <td style="width:170px; height:20px; text-align:left">
+                {{ form_errors(registrationForm.email) }}
+                {{ form_widget(registrationForm.email) }}
+            </td>
+        </tr> 
+        <tr>
+            <td style="width:150px; height:20px; text-align:right">
+                {{ form_label(registrationForm.password, 'Mots de passe : ') }}
+            </td>
+            <td style="width:170px; height:20px; text-align:left">
+                {{ form_errors(registrationForm.password) }}
+                {{ form_widget(registrationForm.password) }}
+            </td>
+        </tr> 
+    </table>
+    {# <tr> #}
+        {# <td> #}
         {# {{ form_row(registrationForm.plainPassword, {
             label: 'Password : '
         }) }} #}
-        {{ form_row(registrationForm.password) }}
-
+        {# {{ form_row(registrationForm.password) }} #}
+        {# </td> #}
+    {# </tr> #}
         {# {{ form_row(registrationForm.role, {
             label: 'Role : ',
             value: "2",
         }) }} #}
         {# {{ form_row(registrationForm.agreeTerms) }} #}
 
-
-        <button class="btn" type="submit">Enregistrer</button>
+    <br>
+    <tr>
+        <td style="text-align:right">
+            <button class="btn" type="submit">Enregistrer</button>
+        </td>
+    </tr>
+    {# </table> #}
     {{ form_end(registrationForm) }}
     {% include 'footer.html.php' %}
     </div>
