@@ -32,12 +32,13 @@
                         <td class=" borderTrue" style="width:49%; height:5%; font-weight:bold; border: 1px solid black; border-collapse:collapse;">
                             <h3>{{ article.title }}</h3>
                         </td>
+                        {# Photo principale #}
                         <td rowspan="4" colspan="3" class=" borderTrue" style="width:51%; height:60%; border: 1px solid black; border-collapse:collapse;">
                             <br>
                                 {% if outputs1 == 'nophoto' %}
                                     <img src="imagesLoaders/nophoto.jpg" style="width:90%" />                                    
                                 {% else %}
-                                    <a href="javascript:popup('imagesLoaders/{{ outputs1 }}')"><img src="imagesLoaders/{{ outputs1 }}" style="width:90%" />                                    
+                                    <a href="javascript:popup('imagesLoaders/{{ outputs1 }}')"><img src="imagesLoaders/{{ outputs1 }}" title="Cliquez sur la photo pour l'agrandir" style="width:90%" />                                    
                                 {% endif %}
                             <br><br>
                         </td>
@@ -66,7 +67,7 @@
                                 {% if outputs2 == 'nophoto' %}
                                     <img src="imagesLoaders/nophoto.jpg" style="width:70%" />    
                                 {% else %}     
-                                    <a href="javascript:popup('imagesLoaders/{{ outputs2 }}')"><img src="imagesLoaders/{{ outputs2 }}" style="width:70%" />                       
+                                    <a href="javascript:popup('imagesLoaders/{{ outputs2 }}')"><img src="imagesLoaders/{{ outputs2 }}" title="Cliquez sur la photo pour l'agrandir" style="width:70%" />                       
                                 {% endif %}
                             <br><br>
                         </td>
@@ -75,7 +76,7 @@
                                 {% if outputs3 == 'nophoto' %}
                                     <img src="imagesLoaders/nophoto.jpg" style="width:70%" />      
                                 {% else %}                              
-                                    <a href="javascript:popup('imagesLoaders/{{ outputs3 }}')"><img src="imagesLoaders/{{ outputs3 }}" style="width:70%" />                                    
+                                    <a href="javascript:popup('imagesLoaders/{{ outputs3 }}')"><img src="imagesLoaders/{{ outputs3 }}" title="Cliquez sur la photo pour l'agrandir" style="width:70%" />                                    
                                 {% endif %}
                             <br><br>
                         </td>
@@ -84,7 +85,7 @@
                                 {% if outputs4 == 'nophoto' %}
                                     <img src="imagesLoaders/nophoto.jpg" style="width:70%" />                                    
                                 {% else %}
-                                    <a href="javascript:popup('imagesLoaders/{{ outputs4 }}')"><img src="imagesLoaders/{{ outputs4 }}" style="width:70%" />                                    
+                                    <a href="javascript:popup('imagesLoaders/{{ outputs4 }}')"><img src="imagesLoaders/{{ outputs4 }}" title="Cliquez sur la photo pour l'agrandir" style="width:70%" />                                    
                                 {% endif %}
                             <br><br>
                         </td>

@@ -261,25 +261,33 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @ROute("/updateArticle/{title}", name="update_article")
+     * @Route("/updateArticle/{title}", name="update_article")
      */
     public function UpdateArticle($title, Articles $article, Request $request): Response
     {
-        
-        // $entityManager = $this->getDoctrine()->getManager();
-
-        // $article = $entityManager->getRepository(Articles::class)->find($title);
         $form = $this->createForm(AddArticleFormType::class, $article);
         $form->handleRequest($request);
 
         $pictures = $this->getDoctrine()->getManager()->getRepository(Pictures::class)->findBy(['articles' => $article->getId()]);
+        // $theme = new Themes();
+        // $themes = $this->getDoctrine()->getManager()->getRepository(Themes::class)->findAll();
+        // $themes = $this->getDoctrine()->getManager()->getRepository(Themes::class)->findAll();
+
+        $theme = new Themes();
+        $formTheme = $this->createForm(AddThemeFormType::class, $theme);
+        $this->addThemes($formTheme);
+        $formTheme->handleRequest($request);
+
+        $idTheme = $this->getDoctrine()->getManager()->getRepository(Themes::class)->findOneBy(['name' => $theme->getName()]);
+        $articlesThemes = new ArticlesThemes();
+        $articlesThemes->setThemes($idTheme);
+        $articlesThemes->setArticles($article);   
+
         if (isset($pictures[0])){
             $mainPictures = $pictures[0]->getAddress();
         } else { 
             $mainPictures = 'nophoto.jpg';
         }
-
-        // $themes = $this->getDoctrine()->getManager()->getRepository(Themes::class)->findAll();
 
         if($form->isSubmitted() && $form->isValid())
         {
@@ -329,6 +337,7 @@ class ArticleController extends AbstractController
             $article->setDateUpdate(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
+            $entityManager->persist($articlesThemes);
             $entityManager->flush();
 
             return $this->redirectToRoute('show_all_article');
@@ -338,7 +347,8 @@ class ArticleController extends AbstractController
             'updateArticleForm' => $form->createView(),
             'pictures' => $pictures,
             'mainPictures' => $mainPictures,
-            // 'themes' => $themes,
+            'themes' => $formTheme->createView(),
+            // 'themes' =>$themes,
         ]);
     }
 
@@ -409,49 +419,3 @@ class ArticleController extends AbstractController
         ]);
     }
 }
-
-// <?php
-// // src/Controller/LuckyController.php
-// namespace App\Controller;
-
-// use Symfony\Component\HttpFoundation\Response;
-// use Symfony\Component\Routing\Annotation\Route;
-// use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-
-// class ArticleController extends AbstractController
-// {
-//     /**
-//      * @Route ("/", name="numbers")
-//      */
-//     public function number(): Response
-//     {
-//         $number = random_int(0, 100);
-//         $chiffre1 = 20;
-//         $chiffre2 = 2;
-//         $calc = ($chiffre1 * $chiffre2);
-
-
-//         return $this->render('articles/index.html.twig', [
-//             'text' => 'Voici mon premier texte',
-//             'numberRandom' => $number,
-//             'calc' => $calc,
-//             'chiffre1' => $chiffre1,
-//             'chiffre2' => $chiffre2,
-//         ]);
-//     }
-
-//     /**
-//      * @Route ("/index", name="index")
-//      */
-//     public function index(): Response
-//     {
-//         return $this->render('articles/index.html.twig', [
-//             'text' => 'Voici mon premier texte',
-//             'numberRandom' => 0,
-//             'calc' => 1,
-//             'chiffre1' => 2,
-//             'chiffre2' => 3,
-//         ]);
-//     }
-// }

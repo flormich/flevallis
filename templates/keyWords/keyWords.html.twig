@@ -27,14 +27,18 @@
         {{ form_end(addkeyForm) }}
     </table>
     
-    <table style="position:absolute; top:100px; left:80%; background:white">
+    {# <table style="position:absolute; top:100px; left:80%; background:white"> #}
+    <table style="position:absolute; top:100px; left:80%; background:white; margin-right:2%">
         <tr>
             <td rowspan="2" style="border:solid 2px black; text-align:center; padding: 0 10px">
                 <b>Mots clés déjà existants</b>
-                <br><br>
-                <p style="overflow:auto; height: 15.5em; margin: 0px;">
+                <br>
+                <p style="overflow:auto; height: 15em; margin-top: 15px; text-align:end">
+                {# <p style="overflow:auto; height: 15.5em; margin: 0px;"> #}
                     {% for showKey in showKeys %}
                         {{ showKey.name }}
+                        <a href="" style="padding-left:20px"><img src="../assets/images/icons/pen.png" alt="update" width="15%" title="Modification"></a>
+                        <a href="{{ path('delete_keyWords', {'name':showKey.name}) }}" style="padding_right:5px" onclick="return confirm('Ëtes-vous sûr de vouloir supprimer le Mots clés : {{ showKey.name }}');"><img style="text-align:right" src="../assets/images/icons/trash.png" alt="Trash" width="15%" title="Suppression"></a>
                         <br>
                     {% endfor %}
                 </p>

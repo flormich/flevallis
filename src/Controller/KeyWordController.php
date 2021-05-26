@@ -18,7 +18,7 @@ class KeyWordController extends AbstractController
     /**
      * @Route("/addKey", name="add_key")
      */
-    public function AddTheme(Request $request): Response
+    public function AddKeyWords(Request $request): Response
     {
         $keyWord = new KeyWord();
         $form = $this->createForm(AddKeyWordsFormType::class, $keyWord);
@@ -65,11 +65,17 @@ class KeyWordController extends AbstractController
 
     // }
 
-    // /**
-    //  * @Route("deleteArticle", name="delete_article")
-    //  */
-    // public function DeleteArticle(Request $request): Response
-    // {
+    /**
+     * @Route("deleteKeyWords/{name}", name="delete_keyWords")
+     */
+    public function DeleteKeyWords(KeyWord $keyWord, Request $request): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $keyWords = $keyWord->getName();
 
-    // }
+        $em->remove($keyWord);
+        $em->flush();
+
+        return $this->redirectToRoute('add_key');
+    }
 }

@@ -57,6 +57,10 @@ class ThemeController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $themeName = $theme->getName();
-        var_dump($themeName);
+
+        $em->remove($theme);
+        $em->flush();
+
+        return $this->redirectToRoute('add_theme');
     }
 }

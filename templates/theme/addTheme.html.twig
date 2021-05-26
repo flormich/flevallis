@@ -33,12 +33,12 @@
                 <b>Thèmes déjà existants</b>
                 <br>
                 <p style="overflow:auto; height: 15em; margin-top: 15px; text-align:end">
-                {% for showTheme in showThemes %}
-                    {{ showTheme.name }}
-                    <a href="" style="padding-left:20px"><img src="../assets/images/icons/pen.png" alt="Update" width="15%" title="Modification"></a>
-                    <a href="{{ path('delete_theme', {'name':showTheme.name}) }}" style="padding-right:5px" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le thème : {{ showTheme.name }} et tous les articles associés ?');"><img style="text-align:right" src="../assets/images/icons/trash.png" alt="Trash" width="15%" title="Suppression"></a>
-                    <br>
-                {% endfor %}
+                    {% for showTheme in showThemes %}
+                        {{ showTheme.name }}
+                        <a href="" style="padding-left:20px"><img src="../assets/images/icons/pen.png" alt="Update" width="15%" title="Modification"></a>
+                        <a href="{{ path('delete_theme', {'name':showTheme.name}) }}" style="padding-right:5px" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le thème : {{ showTheme.name }} et tous les articles associés ?');"><img style="text-align:right" src="../assets/images/icons/trash.png" alt="Trash" width="15%" title="Suppression"></a>
+                        <br>
+                    {% endfor %}
                 </p>
             </td>
         </tr>
