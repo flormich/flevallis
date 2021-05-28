@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 // include __DIR__ . '/../../assets/variable.php';
 
 class ThemeController extends AbstractController
@@ -42,13 +45,32 @@ class ThemeController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/updateTheme/{theme}", name="update_theme")
-    //  */
-    // public function UpdateTheme(Request $request): Response
-    // {
+    /**
+     * @Route("/updateTheme/{name}", name="update_theme")
+     */
+    public function UpdateTheme(Themes $themes, Request $request): Response
+    {
+        $theme = $this->getDoctrine()->getRepository(Themes::class);
+        $theme = $theme->find($themes);
 
-    // }
+        $form = $this->createFormBuilder($theme)
+            ->add('name', TextType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()){
+            $em = $this->getDoctrine()->getManager();
+            $theme = $form->getData();
+            $em->flush();
+
+            return $this->redirectToRoute('add_theme');
+        }
+
+        return $this->render('theme/updateTheme.html.twig', [
+            'addThemeForm' => $form->createView(),
+        ]);
+    }
 
     /**
      * @Route("deleteTheme/{name}", name="delete_theme")

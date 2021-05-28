@@ -84,7 +84,7 @@ class ArticleController extends AbstractController
         $this->addThemes($formTheme);
         $formTheme->handleRequest($request);
         //Récupére les données Id pour le persisté dans la table Join
-        $idTheme = $this->getDoctrine()->getManager()->getRepository(Themes::class)->findOneBy(array('name' => $theme->getName()));
+        $idTheme = $this->getDoctrine()->getManager()->getRepository(Themes::class)->findOneBy(['name' => $theme->getName()]);
 
         $photos = new Pictures();
         $formPicture = $this->createForm(AddPictureFormType::class, $photos);

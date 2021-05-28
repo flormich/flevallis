@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Flevallis -> Ajout de thème {% endblock %}
+{% block body_id %} app {% endblock %}
+
+{% block main %}
+    {% include 'baseOpen.html.php' %}
+    <center>
+    <h1>Modifier un thème</h1>
+
+    <table>
+        <tr>
+            <td>
+                {{ form_start(addThemeForm)}}
+                    {{ form_row(addThemeForm.name, {
+                        label: 'Nom du thème : '
+                    })
+                }}                
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center; vertical-align:top" >
+                <br>
+                <button class="btn" type="submit">Enregistrer</button>
+            </td>
+        </tr>
+        {{ form_end(addThemeForm) }}
+    </table>
+    {% include 'footer.html.php' %}
+{% endblock %}

@@ -56,6 +56,7 @@ class Articles
     /**
      * @ORM\OneToMany(targetEntity=ArticlesThemes::class, mappedBy="articles")
      * @ORM\JoinColumn(onDelete="CASCADE")
+     * 
      */
     private $articlesThemes;
 

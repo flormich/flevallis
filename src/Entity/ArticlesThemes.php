@@ -20,12 +20,14 @@ class ArticlesThemes
     /**
      * @ORM\ManyToOne(targetEntity=Articles::class, inversedBy="articlesThemes")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
-     */
+     * @ORM\OrderBy({"name" = "ASC"})
+     */ 
     private $articles;
 
     /**
      * @ORM\ManyToOne(targetEntity=Themes::class, inversedBy="articlesThemes")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @ORM\OrderBy({"name" = "ASC"})
      */
     private $themes;
 
